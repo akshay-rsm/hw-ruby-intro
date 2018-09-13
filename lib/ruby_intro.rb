@@ -76,4 +76,36 @@ end
 
 class BookInStock
 # YOUR CODE HERE
+  def initialize(isbn,price)
+    if !isbn.is_a?(String)
+      raise ArgumentError.new("Only strings allowed for ISBN!")
+    end
+    if price<0
+      raise ArgumentError.new("Only numbers allowed for price!")
+    end
+    @isbn = isbn
+    @price = price
+  end
+
+  def isbn
+    @isbn
+  end
+
+  def price
+    @price
+  end
+
+  def isbn=(isbn)
+    @isbn = isbn
+  end
+  
+  def price=(price)
+    @price = price
+  end
+
+  def price_as_string
+    price_string = "$"
+    price_dec = "%.2f" % @price
+    return price_string+price_dec.to_s
+  end
 end
