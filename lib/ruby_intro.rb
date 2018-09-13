@@ -77,10 +77,10 @@ end
 class BookInStock
 # YOUR CODE HERE
   def initialize(isbn,price)
-    if !isbn.is_a?(String)
+    if !isbn.is_a?(String) or isbn == ''
       raise ArgumentError.new("Only strings allowed for ISBN!")
     end
-    if price<0
+    if price<=0
       raise ArgumentError.new("Only numbers allowed for price!")
     end
     @isbn = isbn
